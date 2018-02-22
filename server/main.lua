@@ -13,7 +13,8 @@ end)
 
 ESX.RegisterServerCallback('esx_thief:getOtherPlayerData', function(source, cb, target)
 
-    local xPlayer = ESX.GetPlayerFromId(target)
+  local _target = target
+  local xPlayer = ESX.GetPlayerFromId(_target)
 
     local data = {
       name        = GetPlayerName(target),
@@ -31,8 +32,10 @@ end)
 RegisterServerEvent('esx_thief:stealPlayerItem')
 AddEventHandler('esx_thief:stealPlayerItem', function(target, itemType, itemName, amount)
 
-    local sourceXPlayer = ESX.GetPlayerFromId(source)
-    local targetXPlayer = ESX.GetPlayerFromId(target)
+    local _source = source
+    local _target = target
+    local sourceXPlayer = ESX.GetPlayerFromId(_source)
+    local targetXPlayer = ESX.GetPlayerFromId(_target)
 
     if itemType == 'item_standard' then
 
@@ -98,16 +101,16 @@ end)
 
 RegisterServerEvent("esx_thief:update")
 AddEventHandler("esx_thief:update", function(bool)
-	local source = source
-	Users[source] = {value = bool, time = os.time()}
+	local _source = source
+	Users[_source] = {value = bool, time = os.time()}
 end)
 
 RegisterServerEvent("esx_thief:getValue")
 AddEventHandler("esx_thief:getValue", function(targetSID)
-    local source = source
+    local _source = source
 	if Users[targetSID] then
-		TriggerClientEvent("esx_thief:returnValue", source, Users[targetSID])
+		TriggerClientEvent("esx_thief:returnValue", _source, Users[targetSID])
 	else
-		TriggerClientEvent("esx_thief:returnValue", source, Users[targetSID])
+		TriggerClientEvent("esx_thief:returnValue", _source, Users[targetSID])
 	end
 end)

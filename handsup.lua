@@ -25,7 +25,7 @@ Citizen.CreateThread(function()
 		local lPed = GetPlayerPed(-1)
 		RequestAnimDict("random@mugging3")
 		if canHandsUp then
-			if (IsControlPressed(1, Keys['E']) and (GetGameTimer() - GUI.Time) > 150) then
+			if (IsControlPressed(1, Keys['X']) and (GetGameTimer() - GUI.Time) > 150) then
 				if handsup then
 					if DoesEntityExist(lPed) then
 						Citizen.CreateThread(function()
