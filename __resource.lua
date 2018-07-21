@@ -20,6 +20,5 @@ server_scripts {
   'locales/fr.lua',
   'locales/sv.lua',
   'config.lua',
-  'server/main.lua',
-  'handsup.lua'
+  'server/main.lua'
 }
