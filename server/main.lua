@@ -38,22 +38,22 @@ AddEventHandler('esx_thief:stealPlayerItem', function(target, itemType, itemName
 			local itemLimit = sourceXPlayer.getInventoryItem(itemName).limit
 			local sourceItemCount = sourceXPlayer.getInventoryItem(itemName).count
 			local targetItemCount = targetXPlayer.getInventoryItem(itemName).count
+			if amount ~= nil then
+				if amount > 0 and targetItemCount >= amount then
+					if itemLimit ~= -1 and (sourceItemCount + amount) > itemLimit then
+						TriggerClientEvent('esx:showNotification', targetXPlayer.source, _U('ex_inv_lim_target'))
+						TriggerClientEvent('esx:showNotification', sourceXPlayer.source, _U('ex_inv_lim_source'))
+					else
+						targetXPlayer.removeInventoryItem(itemName, amount)
+						sourceXPlayer.addInventoryItem(itemName, amount)
 
-			if amount > 0 and targetItemCount >= amount then
-				if itemLimit ~= -1 and (sourceItemCount + amount) > itemLimit then
-					TriggerClientEvent('esx:showNotification', targetXPlayer.source, _U('ex_inv_lim_target'))
-					TriggerClientEvent('esx:showNotification', sourceXPlayer.source, _U('ex_inv_lim_source'))
+						TriggerClientEvent('esx:showNotification', sourceXPlayer.source, _U('you_stole') .. ' ~g~x' .. amount .. ' ' .. label .. ' ~w~' .. _U('from_your_target') )
+						TriggerClientEvent('esx:showNotification', targetXPlayer.source, _U('someone_stole') .. ' ~r~x'  .. amount .. ' ' .. label )
+					end
 				else
-					targetXPlayer.removeInventoryItem(itemName, amount)
-					sourceXPlayer.addInventoryItem(itemName, amount)
-
-					TriggerClientEvent('esx:showNotification', sourceXPlayer.source, _U('you_stole') .. ' ~g~x' .. amount .. ' ' .. label .. ' ~w~' .. _U('from_your_target') )
-					TriggerClientEvent('esx:showNotification', targetXPlayer.source, _U('someone_stole') .. ' ~r~x'  .. amount .. ' ' .. label )
+					TriggerClientEvent('esx:showNotification', _source, _U('invalid_quantity'))
 				end
-			else
-				TriggerClientEvent('esx:showNotification', _source, _U('invalid_quantity'))
 			end
-
 		elseif itemType == 'item_money' then
 
 			if amount > 0 and targetXPlayer.get('money') >= amount then
