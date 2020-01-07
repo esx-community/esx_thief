@@ -6,6 +6,7 @@ version '1.0.2'
 
 client_scripts {
   '@es_extended/locale.lua',
+  'locales/br.lua',
   'locales/en.lua',
   'locales/fr.lua',
   'locales/sv.lua',
@@ -17,6 +18,7 @@ client_scripts {
 
 server_scripts {
   '@es_extended/locale.lua',
+  'locales/br.lua',
   'locales/en.lua',
   'locales/fr.lua',
   'locales/sv.lua',
