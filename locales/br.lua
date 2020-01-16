@@ -17,3 +17,4 @@ Locales['br'] = {
   ['someone_stole']       = 'Alguém roubou',
   ['invalid_quantity']    = 'Quantidade inválida',
 }
+
