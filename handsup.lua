@@ -21,11 +21,21 @@ Citizen.CreateThread(function()
 
 	while true do
 		Citizen.Wait(0)
+			
+		local playerPed = PlayerPedId()
+			
+		if handsup then 
+			if DoesEntityExist(playerPed) then
+				DisableControlAction(2, 37, true) -- disable weapon wheel (Tab)
+				DisablePlayerFiring(playerPed,true) -- Disables firing all together if they somehow bypass inzone Mouse Disable
+				DisableControlAction(0, 106, true) -- Disable in-game mouse controls
+				SetCurrentPedWeapon(playerPed,GetHashKey("WEAPON_UNARMED"),true)
+			end
+		end
 
 		if canHandsUp then
 			if IsControlJustReleased(0, Keys['X']) then
-				local playerPed = PlayerPedId()
-
+				
 				RequestAnimDict('random@mugging3')
 				while not HasAnimDictLoaded('random@mugging3') do
 					Citizen.Wait(100)
