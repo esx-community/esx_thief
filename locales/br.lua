@@ -1,0 +1,20 @@
+Locales['br'] = {
+  ['no_hands_up']         = 'o alvo não está com as mãos para cima!',
+  ['cash']                = 'dinheiro',
+  ['black_money']         = 'dinheiro sujo',
+  ['inventory']           = 'inventário',
+  ['target_inventory']    = 'inventário do alvo',
+  ['steal']               = 'roubar',
+  ['return']              = 'retorna',
+  ['action_choice']       = 'escolha de ação',
+  ['amount']              = 'quantidade',
+  ['too_far']             = 'você está muito longe para fazer isso!',
+  ['no_players_nearby']   = 'nenhum jogador por perto',
+  ['ex_inv_lim_source']   = 'você não tem espaço suficiente em seu inventário',
+  ['ex_inv_lim_target']   = 'o indivíduo não possui espaço suficiente em seu inventário',
+  ['you_stole']           = 'você roubou',
+  ['from_your_target']    = 'do seu alvo',
+  ['someone_stole']       = 'alguém roubou',
+  ['invalid_quantity']    = 'quantidade inválida',
+}
+
